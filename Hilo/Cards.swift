@@ -28,8 +28,13 @@ protocol DeckProtocol {
 }
 
 struct Card: CustomStringConvertible {
-    let suit: CardSuits
     let rank: CardRanks
+    let suit: CardSuits
+    
+    init(rank: CardRanks, of suit: CardSuits) {
+        self.rank = rank
+        self.suit = suit
+    }
     
     var description: String {
         return "\(rank.stringValue)\(suit.rawValue)"
@@ -47,7 +52,7 @@ struct Deck: DeckProtocol {
         cards.removeAll()
         for rank in CardRanks.allCases {
             for suit in CardSuits.allCases {
-                cards.append(Card(suit: suit, rank: rank))
+                cards.append(Card(rank: rank, of: suit))
             }
         }
         cards.shuffle()

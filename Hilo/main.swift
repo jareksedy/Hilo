@@ -7,6 +7,7 @@
 
 import Foundation
 
-var deck = Deck()
+var player = HumanPlayer()
+print(player.makePrediction(by: Card(rank: .ace, of: .spades)))
 
 
