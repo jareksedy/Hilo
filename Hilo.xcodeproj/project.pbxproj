@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CABA93432A1674A100FD3070 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA93422A1674A100FD3070 /* main.swift */; };
+		CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA93492A1674EB00FD3070 /* Cards.swift */; };
+		CABA934C2A167F1D00FD3070 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA934B2A167F1D00FD3070 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		CABA933F2A1674A100FD3070 /* Hilo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Hilo; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABA93422A1674A100FD3070 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CABA93492A1674EB00FD3070 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		CABA934B2A167F1D00FD3070 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 		CABA93412A1674A100FD3070 /* Hilo */ = {
 			isa = PBXGroup;
 			children = (
+				CABA93492A1674EB00FD3070 /* Cards.swift */,
+				CABA934B2A167F1D00FD3070 /* Game.swift */,
 				CABA93422A1674A100FD3070 /* main.swift */,
 			);
 			path = Hilo;
@@ -121,6 +127,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CABA93432A1674A100FD3070 /* main.swift in Sources */,
+				CABA934C2A167F1D00FD3070 /* Game.swift in Sources */,
+				CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
