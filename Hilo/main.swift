@@ -7,6 +7,9 @@
 
 import Foundation
 
-var player = HumanPlayer()
+let humanPlayer = HumanPlayer()
+let aiPlayer = AIPlayer()
+var deck = Deck()
+var game = Game(deck: deck, players: [humanPlayer, aiPlayer])
 
-print("Your prediction: \(player.makePrediction(by: Card(.ace, of: .spades)))")
+game.play()

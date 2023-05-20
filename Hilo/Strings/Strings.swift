@@ -6,5 +6,9 @@
 //
 
 enum Strings {
-    static let prompt = "Open card is %@, make your guess, 'h' - hi or 'l' - low:"
+    static let roundIntro = "Playing Round %d."
+    static let potStatusText = "Pot Contains $%d."
+    static let dealtCard = "Dealt Card: [%@]"
+    static let guessPrompt = "Make Your Guess: 'h' - hi or 'l' - low:"
+    static let aiGuess = "AI Player's Guess is... %@"
 }
