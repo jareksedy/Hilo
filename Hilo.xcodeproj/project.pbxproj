@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA9892482A1872FC0062104B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9892472A1872FC0062104B /* Strings.swift */; };
+		CA98924A2A18738C0062104B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9892492A18738C0062104B /* String+Helpers.swift */; };
 		CABA93432A1674A100FD3070 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA93422A1674A100FD3070 /* main.swift */; };
 		CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA93492A1674EB00FD3070 /* Cards.swift */; };
 		CABA934C2A167F1D00FD3070 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA934B2A167F1D00FD3070 /* Game.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CA9892472A1872FC0062104B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		CA9892492A18738C0062104B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		CABA933F2A1674A100FD3070 /* Hilo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Hilo; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABA93422A1674A100FD3070 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		CABA93492A1674EB00FD3070 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -42,6 +46,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA98924B2A1873B70062104B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA9892492A18738C0062104B /* String+Helpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CA98924C2A1873C10062104B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				CA9892472A1872FC0062104B /* Strings.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		CA98924D2A1873DC0062104B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CABA93492A1674EB00FD3070 /* Cards.swift */,
+				CABA934B2A167F1D00FD3070 /* Game.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		CABA93362A1674A100FD3070 = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +90,9 @@
 		CABA93412A1674A100FD3070 /* Hilo */ = {
 			isa = PBXGroup;
 			children = (
-				CABA93492A1674EB00FD3070 /* Cards.swift */,
-				CABA934B2A167F1D00FD3070 /* Game.swift */,
+				CA98924D2A1873DC0062104B /* Core */,
+				CA98924B2A1873B70062104B /* Extensions */,
+				CA98924C2A1873C10062104B /* Strings */,
 				CABA93422A1674A100FD3070 /* main.swift */,
 			);
 			path = Hilo;
@@ -126,8 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA98924A2A18738C0062104B /* String+Helpers.swift in Sources */,
 				CABA93432A1674A100FD3070 /* main.swift in Sources */,
 				CABA934C2A167F1D00FD3070 /* Game.swift in Sources */,
+				CA9892482A1872FC0062104B /* Strings.swift in Sources */,
 				CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

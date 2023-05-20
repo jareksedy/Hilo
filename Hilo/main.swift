@@ -8,6 +8,5 @@
 import Foundation
 
 var player = HumanPlayer()
-print(player.makePrediction(by: Card(rank: .ace, of: .spades)))
 
-
+print("Your prediction: \(player.makePrediction(by: Card(.ace, of: .spades)))")
