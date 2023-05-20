@@ -2,7 +2,7 @@
 //  Strings.swift
 //  Hilo
 //
-//  Created by Ярослав on 20.05.2023.
+//  Created by Yaroslav Sedyshev on 20.05.2023.
 //
 
 enum Strings {
