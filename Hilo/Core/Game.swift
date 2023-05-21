@@ -5,13 +5,11 @@
 //  Created by Yaroslav Sedyshev on 18.05.2023.
 //
 
-import Foundation
-
 protocol Playable {
     var deck: Deck { get }
-    var pot: Int { get set }
+    var pot: Int { get }
     var players: [Player] { get }
-    var round: Int { get set }
+    var round: Int { get }
     var stakeAmount: Int { get }
     
     func intro()
@@ -49,107 +47,7 @@ struct Game: Playable {
                 }
             }
         } while players.haveFunds
+        
         announceWinners()
-    }
-}
-
-private extension Game {
-    mutating func setupRound() {
-        deck = Deck()
-        round += 1
-        makeStakes(by: stakeAmount)
-        
-        Thread.sleep(forTimeInterval: 2.0)
-        
-        print()
-        print(Strings.roundIntro.format(round))
-        print()
-        print(Strings.makingStakes)
-        print(fundsDescription())
-        print(Strings.potStatusText.format(pot))
-        print()
-        
-        Thread.sleep(forTimeInterval: 1.0)
-    }
-    
-    mutating func playTurn(dealtCard: Card, previousCard: inout Card?, nextCard: Card) -> Bool {
-        let highOrLow = higherOrLowerSign(previousCard, dealtCard)
-        print(Strings.dealtCard.format(dealtCard.description, highOrLow, deck.cards.count))
-        
-        let guesses = players.makeGuesses(by: dealtCard)
-        let losers = players.getLosers(by: guesses, dealtCard: dealtCard, nextCard: nextCard)
-        let winners = players.getWinners(by: guesses, dealtCard: dealtCard, nextCard: nextCard)
-        let winningIndices = guesses.rightGuessIndices(dealtCard: dealtCard, nextCard: nextCard)
-        
-        // Print the next card if someone's lost
-        if losers.count > 0 {
-            print(Strings.nextCard.format(nextCard.description, higherOrLowerSign(dealtCard, nextCard)))
-        }
-        
-        // It's a tie!
-        if losers.count == players.count {
-            for (index, _) in players.enumerated() {
-                players[index].funds += pot / players.count
-            }
-            
-            pot = 0
-            print(Strings.tie)
-            return false
-        }
-        
-        // We have winners!
-        if losers.count >= 1 {
-            for index in winningIndices {
-                print(Strings.winner.format(players[index].name))
-                players[index].funds += pot / winners.count
-            }
-            
-            pot = 0
-            return false
-        }
-  
-        previousCard = dealtCard
-        print()
-        
-        return true
-    }
-    
-    func skipTurn(dealtCard: Card, nextCard: Card) {
-        print(Strings.dealtCard.format(dealtCard.description, "", deck.cards.count) + Strings.skip)
-    }
-    
-    func fundsDescription() -> String {
-        var description: String = ""
-        
-        for player in players {
-            description += "[ " + player.name + ": $" + String(player.funds) + " ]"
-        }
-        
-        return description
-    }
-    
-    mutating func makeStakes(by amount: Int) {
-        for (index, _) in players.enumerated() {
-            players[index].funds -= amount
-            pot += amount
-        }
-    }
-    
-    func announceWinners() {
-        var winnersText: String = ""
-        let winners = players.filter { $0.funds > 0 }.sorted(by: { $0.funds > $1.funds })
-        
-        for (index, winner) in winners.enumerated() {
-            winnersText += winner.name + ": $" + String(winner.funds)
-            if index != winners.count - 1 {
-                winnersText += ", "
-            } else {
-                winnersText += "."
-            }
-        }
-        
-        print()
-        print(Strings.absoluteWinner.format(winnersText))
-        print()
     }
 }

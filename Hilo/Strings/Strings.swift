@@ -27,7 +27,7 @@ enum Strings {
     static let absoluteWinner = """
 *****************************************************
 *** GAME OVER
-*** AND THE WINNERS ARE ...
+*** AND THE WINNERS ARE:
 *** %@
 *****************************************************
 """
