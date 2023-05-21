@@ -11,8 +11,14 @@ extension Game {
     var fundsDescription: String {
         var description: String = ""
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        formatter.locale = Locale(identifier: "en_US")
+        
         for player in players {
-            description += "[ " + player.name + ": $" + String(player.funds) + " ]"
+            let fundsString = formatter.string(from: NSNumber(value: player.funds))!
+            description += "[ " + player.name + ": " + fundsString + " ]"
         }
         
         return description

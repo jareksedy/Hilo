@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA300AEF2A1A606F00B8750E /* GamePrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA300AEE2A1A606F00B8750E /* GamePrivate.swift */; };
+		CA300AEF2A1A606F00B8750E /* Game+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA300AEE2A1A606F00B8750E /* Game+Methods.swift */; };
 		CA46F1DB2A19BA0D007E970C /* PlayerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DA2A19BA0D007E970C /* PlayerArray.swift */; };
 		CA46F1E02A19BB48007E970C /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DE2A19BB32007E970C /* Guess.swift */; };
 		CA46F1E22A19BB5E007E970C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1E12A19BB5E007E970C /* Player.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CA300AEE2A1A606F00B8750E /* GamePrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePrivate.swift; sourceTree = "<group>"; };
+		CA300AEE2A1A606F00B8750E /* Game+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Methods.swift"; sourceTree = "<group>"; };
 		CA46F1DA2A19BA0D007E970C /* PlayerArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerArray.swift; sourceTree = "<group>"; };
 		CA46F1DC2A19BA76007E970C /* Game+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Helpers.swift"; sourceTree = "<group>"; };
 		CA46F1DE2A19BB32007E970C /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			children = (
 				CABA93492A1674EB00FD3070 /* Cards.swift */,
 				CABA934B2A167F1D00FD3070 /* Game.swift */,
-				CA300AEE2A1A606F00B8750E /* GamePrivate.swift */,
+				CA300AEE2A1A606F00B8750E /* Game+Methods.swift */,
 				CA46F1DE2A19BB32007E970C /* Guess.swift */,
 				CA46F1E12A19BB5E007E970C /* Player.swift */,
 			);
@@ -183,7 +183,7 @@
 				CA9892482A1872FC0062104B /* Strings.swift in Sources */,
 				CA46F1E52A19C624007E970C /* GuessArray.swift in Sources */,
 				CA46F1E22A19BB5E007E970C /* Player.swift in Sources */,
-				CA300AEF2A1A606F00B8750E /* GamePrivate.swift in Sources */,
+				CA300AEF2A1A606F00B8750E /* Game+Methods.swift in Sources */,
 				CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
