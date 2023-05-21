@@ -24,7 +24,7 @@ enum Strings {
     static let potStatusText = "[ POT: $%d ]"
     static let dealtCard = "[ %@ ]%@[ %d ]"
     static let nextCard = "NEXT CARD: [ %@ ]%@"
-    static let makingStakes = "*** MAKING STAKES ***"
+    static let makingStakes = "MAKING STAKES."
     static let skip = " EQUAL-RANK CARDS, SKIPPING."
     static let winner = "WINNER: %@."
     static let tie = "IT'S A TIE! STARTING NEXT ROUND."
