@@ -108,7 +108,7 @@ extension Game {
         }
         
         print()
-        print(Strings.absoluteWinner.format(winnersText))
+        print(Strings.gameOver.format(round, winnersText))
         print()
     }
 }
