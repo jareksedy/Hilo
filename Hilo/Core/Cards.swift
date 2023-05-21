@@ -11,6 +11,7 @@ enum CardSuits: String, CaseIterable {
 
 enum CardRanks: Int, CaseIterable {
     case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
+    
     var stringValue: String {
         if (2...10).contains(self.rawValue) {
             return String(self.rawValue)
@@ -23,7 +24,6 @@ enum CardRanks: Int, CaseIterable {
 protocol DeckProtocol {
     var cards: [Card] { get }
 
-    mutating func createAndShuffle()
     mutating func pop() -> Card?
     func next() -> Card?
 }
@@ -57,7 +57,15 @@ struct Deck: DeckProtocol {
         createAndShuffle()
     }
     
-    mutating func createAndShuffle() {
+    mutating func pop() -> Card? {
+        return cards.popLast()
+    }
+    
+    func next() -> Card? {
+        return cards.last
+    }
+    
+    private mutating func createAndShuffle() {
         cards.removeAll()
         
         for rank in CardRanks.allCases {
@@ -67,13 +75,5 @@ struct Deck: DeckProtocol {
         }
         
         cards.shuffle()
-    }
-    
-    mutating func pop() -> Card? {
-        return cards.popLast()
-    }
-    
-    func next() -> Card? {
-        return cards.last
     }
 }

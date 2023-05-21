@@ -85,7 +85,7 @@ extension Game {
         return true
     }
     
-    func skipTurn(dealtCard: Card, nextCard: Card) {
+    func skipTurn(dealtCard: Card) {
         print(Strings.dealtCard.format(dealtCard.description, "", deck.cards.count) + Strings.skip)
     }
     

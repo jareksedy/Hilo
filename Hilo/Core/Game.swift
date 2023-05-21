@@ -41,7 +41,7 @@ struct Game: Playable {
             
             while let dealtCard = deck.pop(), let nextCard = deck.next() {
                 if dealtCard == nextCard  {
-                    skipTurn(dealtCard: dealtCard, nextCard: nextCard)
+                    skipTurn(dealtCard: dealtCard)
                 } else {
                     if !playTurn(dealtCard: dealtCard, previousCard: &previousCard, nextCard: nextCard) { break }
                 }
