@@ -23,4 +23,26 @@ extension Array where Element == Player {
         
         return guesses
     }
+    
+    func getLosers(by guesses: [Guess], dealtCard: Card, nextCard: Card) -> [Player] {
+        var tempStorage = [Element]()
+        let wrongIndices = guesses.wrongGuessIndices(dealtCard: dealtCard, nextCard: nextCard)
+        
+        for index in wrongIndices {
+            tempStorage.append(self[index])
+        }
+        
+        return tempStorage
+    }
+    
+    func getWinners(by guesses: [Guess], dealtCard: Card, nextCard: Card) -> [Player] {
+        var tempStorage = [Element]()
+        let wrongIndices = guesses.rightGuessIndices(dealtCard: dealtCard, nextCard: nextCard)
+        
+        for index in wrongIndices {
+            tempStorage.append(self[index])
+        }
+        
+        return tempStorage
+    }
 }

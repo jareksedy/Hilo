@@ -5,11 +5,11 @@
 //  Created by Yaroslav Sedyshev on 18.05.2023.
 //
 
-import Foundation
+let humanPlayer = HumanPlayer(name: "Yaroslav", funds: 25)
+let aiPlayer = AIPlayer(name: "CyberShark (AI)", funds: 25)
+let deck = Deck()
 
-let humanPlayer = HumanPlayer(name: "Yaroslav")
-let aiPlayer = AIPlayer(name: "CyberShark")
-var deck = Deck()
 var game = Game(deck: deck, players: [humanPlayer, aiPlayer])
 
+game.intro()
 game.play()

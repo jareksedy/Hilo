@@ -6,10 +6,21 @@
 //
 
 enum Strings {
-    static let roundIntro = "*** ROUND: %d ***"
+    static let gameIntro = """
+*****************************************************
+***  HILO CONSOLE CARD GAME BY YAROSLAV SEDYSHEV  ***
+*****************************************************
+"""
+
+    static let roundIntro = "********************** ROUND %d **********************"
     static let potStatusText = "[ POT: $%d ]"
     static let dealtCard = "[ %@ ]%@[ %d ]"
-    static let skip = " EQUAL-RANK CARDS, SKIPPING TURN..."
-    static let guessPrompt = "%@: 'h' - HI OR 'l' - LO:"
-    static let aiGuess = "%@ (AI):... %@"
+    static let nextCard = "NEXT CARD: [ %@ ]%@"
+    static let makingStakes = "[ MAKING STAKES ... ]"
+    static let skip = " EQUAL-RANK CARDS, SKIPPING TURN."
+    static let winner = "%@ IS THE WINNER, STARTING NEXT ROUND."
+    static let tie = "IT'S A TIE! STARTING NEXT ROUND."
+    static let guessPrompt = "%@: 'h' - hi OR 'l' - lo:"
+    static let aiGuess = "%@:"
+    static let wrongGuess = "%@: WRONG GUESS, YOU LOST!"
 }

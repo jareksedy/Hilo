@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CA46F1DB2A19BA0D007E970C /* PlayerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DA2A19BA0D007E970C /* PlayerArray.swift */; };
-		CA46F1DD2A19BA76007E970C /* Game+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DC2A19BA76007E970C /* Game+Helpers.swift */; };
 		CA46F1E02A19BB48007E970C /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DE2A19BB32007E970C /* Guess.swift */; };
 		CA46F1E22A19BB5E007E970C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1E12A19BB5E007E970C /* Player.swift */; };
+		CA46F1E32A19C23B007E970C /* Game+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1DC2A19BA76007E970C /* Game+Helpers.swift */; };
+		CA46F1E52A19C624007E970C /* GuessArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA46F1E42A19C624007E970C /* GuessArray.swift */; };
 		CA9892482A1872FC0062104B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9892472A1872FC0062104B /* Strings.swift */; };
 		CA98924A2A18738C0062104B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9892492A18738C0062104B /* String+Helpers.swift */; };
 		CABA93432A1674A100FD3070 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABA93422A1674A100FD3070 /* main.swift */; };
@@ -35,6 +36,7 @@
 		CA46F1DC2A19BA76007E970C /* Game+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Helpers.swift"; sourceTree = "<group>"; };
 		CA46F1DE2A19BB32007E970C /* Guess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 		CA46F1E12A19BB5E007E970C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CA46F1E42A19C624007E970C /* GuessArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessArray.swift; sourceTree = "<group>"; };
 		CA9892472A1872FC0062104B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		CA9892492A18738C0062104B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		CABA933F2A1674A100FD3070 /* Hilo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Hilo; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,7 @@
 				CA9892492A18738C0062104B /* String+Helpers.swift */,
 				CA46F1DC2A19BA76007E970C /* Game+Helpers.swift */,
 				CA46F1DA2A19BA0D007E970C /* PlayerArray.swift */,
+				CA46F1E42A19C624007E970C /* GuessArray.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,12 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA46F1DB2A19BA0D007E970C /* PlayerArray.swift in Sources */,
-				CA46F1DD2A19BA76007E970C /* Game+Helpers.swift in Sources */,
 				CA98924A2A18738C0062104B /* String+Helpers.swift in Sources */,
+				CA46F1E32A19C23B007E970C /* Game+Helpers.swift in Sources */,
 				CABA93432A1674A100FD3070 /* main.swift in Sources */,
 				CABA934C2A167F1D00FD3070 /* Game.swift in Sources */,
 				CA46F1E02A19BB48007E970C /* Guess.swift in Sources */,
 				CA9892482A1872FC0062104B /* Strings.swift in Sources */,
+				CA46F1E52A19C624007E970C /* GuessArray.swift in Sources */,
 				CA46F1E22A19BB5E007E970C /* Player.swift in Sources */,
 				CABA934A2A1674EB00FD3070 /* Cards.swift in Sources */,
 			);
