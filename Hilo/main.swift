@@ -7,8 +7,8 @@
 
 import Foundation
 
-let humanPlayer = HumanPlayer()
-let aiPlayer = AIPlayer()
+let humanPlayer = HumanPlayer(name: "Yaroslav")
+let aiPlayer = AIPlayer(name: "CyberShark")
 var deck = Deck()
 var game = Game(deck: deck, players: [humanPlayer, aiPlayer])
 
