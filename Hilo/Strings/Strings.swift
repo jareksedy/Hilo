@@ -25,7 +25,7 @@ enum Strings {
     static let dealtCard = "[ %@ ]%@[ %d ]"
     static let nextCard = "NEXT CARD: [ %@ ]%@"
     static let makingStakes = "*** MAKING STAKES ***"
-    static let skip = " EQUAL-RANK CARDS, SKIPPING TURN."
+    static let skip = " EQUAL-RANK CARDS, SKIPPING."
     static let winner = "WINNER: %@."
     static let tie = "IT'S A TIE! STARTING NEXT ROUND."
     static let guessPrompt = "%@: 'h' - hi OR 'l' - lo:"
