@@ -13,6 +13,12 @@ protocol Player {
     func makeGuess(by lastOpenCard: Card) -> Guess
 }
 
+enum AIDifficulty {
+    case dumb
+    case normal
+    case intelligent
+}
+
 struct HumanPlayer: Player {
     var name: String
     var funds: Int
@@ -41,14 +47,22 @@ struct HumanPlayer: Player {
 struct AIPlayer: Player {
     var name: String
     var funds: Int = 250
+    private var difficulty: AIDifficulty
     
-    init(name: String, funds: Int = 250) {
+    init(name: String, funds: Int = 250, difficulty: AIDifficulty = .normal) {
         self.name = name
         self.funds = funds
+        self.difficulty = difficulty
     }
     
     func makeGuess(by lastOpenCard: Card) -> Guess {
         var guess: Guess?
+        
+        if difficulty == .dumb {
+            guess = Guess.random()
+            printGuessing(guess!)
+            return guess!
+        }
         
         switch lastOpenCard.rank {
         case .ace: guess = .hi
@@ -56,6 +70,11 @@ struct AIPlayer: Player {
         default: guess = Guess.random()
         }
         
+        printGuessing(guess!)
+        return guess!
+    }
+    
+    private func printGuessing(_ guess: Guess) {
         print(Strings.aiGuess.format(name), terminator: " ")
         Thread.sleep(forTimeInterval: 0.5)
         print(".", terminator: "")
@@ -64,9 +83,7 @@ struct AIPlayer: Player {
         Thread.sleep(forTimeInterval: 0.5)
         print(".", terminator: "")
         Thread.sleep(forTimeInterval: 0.5)
-        print(" " + guess!.rawValue)
+        print(" " + guess.rawValue)
         Thread.sleep(forTimeInterval: 1.0)
-        
-        return guess!
     }
 }

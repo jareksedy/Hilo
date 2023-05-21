@@ -12,6 +12,7 @@ protocol Playable {
     var pot: Int { get set }
     var players: [Player] { get }
     var round: Int { get set }
+    var stakeAmount: Int { get }
     
     func intro()
     mutating func play()
@@ -22,10 +23,12 @@ struct Game: Playable {
     var pot: Int = 0
     var players: [Player]
     var round: Int = 0
+    var stakeAmount: Int
     
-    init(deck: Deck, players: [Player]) {
+    init(deck: Deck, stakeAmount: Int = 25, players: [Player]) {
         self.deck = deck
         self.players = players
+        self.stakeAmount = stakeAmount
     }
     
     func intro() {
@@ -42,12 +45,11 @@ struct Game: Playable {
                 if dealtCard == nextCard  {
                     skipTurn(dealtCard: dealtCard, nextCard: nextCard)
                 } else {
-                    if !playTurn(dealtCard: dealtCard, previousCard: &previousCard, nextCard: nextCard) {
-                        break
-                    }
+                    if !playTurn(dealtCard: dealtCard, previousCard: &previousCard, nextCard: nextCard) { break }
                 }
             }
         } while players.haveFunds
+        announceWinners()
     }
 }
 
@@ -55,7 +57,7 @@ private extension Game {
     mutating func setupRound() {
         deck = Deck()
         round += 1
-        makeStakes(by: 25)
+        makeStakes(by: stakeAmount)
         
         Thread.sleep(forTimeInterval: 2.0)
         
@@ -131,5 +133,23 @@ private extension Game {
             players[index].funds -= amount
             pot += amount
         }
+    }
+    
+    func announceWinners() {
+        var winnersText: String = ""
+        let winners = players.filter { $0.funds > 0 }.sorted(by: { $0.funds > $1.funds })
+        
+        for (index, winner) in winners.enumerated() {
+            winnersText += winner.name + ": $" + String(winner.funds)
+            if index != winners.count - 1 {
+                winnersText += ", "
+            } else {
+                winnersText += "."
+            }
+        }
+        
+        print()
+        print(Strings.absoluteWinner.format(winnersText))
+        print()
     }
 }
