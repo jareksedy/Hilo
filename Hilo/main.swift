@@ -11,7 +11,7 @@ let smartStrategist = AIPlayer(name: "SmartStrategist (AI)", funds: 50, difficul
 let humanPlayer = HumanPlayer(name: "Yaroslav", funds: 50)
 
 let deck = Deck()
-var game = Game(deck: deck, players: [humanPlayer, smartStrategist])
+var game = Game(deck: deck, players: [dumbBot, smartStrategist])
 
 game.intro()
 game.play()

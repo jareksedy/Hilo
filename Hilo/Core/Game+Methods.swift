@@ -51,6 +51,7 @@ extension Game {
         
         // Print the next card if someone's lost
         if losers.count > 0 {
+            print()
             print(Strings.nextCard.format(nextCard.description, higherOrLowerSign(dealtCard, nextCard)))
         }
         
@@ -62,6 +63,7 @@ extension Game {
             
             pot = 0
             print(Strings.tie)
+            Thread.sleep(forTimeInterval: 0.5)
             return false
         }
         
@@ -73,6 +75,7 @@ extension Game {
             }
             
             pot = 0
+            Thread.sleep(forTimeInterval: 0.5)
             return false
         }
   

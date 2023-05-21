@@ -35,7 +35,7 @@ enum Strings {
     static let gameOver = """
 *****************************************************
 *** GAME OVER!
-*** ROUNDS PLAYED: %d.
+*** ROUNDS PLAYED: %d
 *** THE WINNERS ARE:
 *** %@
 *****************************************************
