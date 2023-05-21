@@ -16,7 +16,7 @@ protocol Player {
 enum AIDifficulty {
     case dumb
     case normal
-    case intelligent
+    case high
 }
 
 struct HumanPlayer: Player {
@@ -64,6 +64,19 @@ struct AIPlayer: Player {
             return guess!
         }
         
+        if difficulty == .high {
+            switch lastOpenCard.rank {
+            case .ace, .two, .three: guess = .hi
+            case .king, .queen: guess = .lo
+            case .four, .five: guess = Bool.random() ? .hi : Guess.random()
+            case .jack, .ten: guess = Bool.random() ? .lo : Guess.random()
+            default: guess = Guess.random()
+            }
+            
+            printGuessing(guess!)
+            return guess!
+        }
+        
         switch lastOpenCard.rank {
         case .ace: guess = .hi
         case .king: guess = .lo
@@ -76,14 +89,14 @@ struct AIPlayer: Player {
     
     private func printGuessing(_ guess: Guess) {
         print(Strings.aiGuess.format(name), terminator: " ")
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.25)
         print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.25)
         print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.25)
         print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.25)
         print(" " + guess.rawValue)
-        Thread.sleep(forTimeInterval: 1.0)
+        Thread.sleep(forTimeInterval: 0.5)
     }
 }
