@@ -28,7 +28,7 @@ protocol DeckProtocol {
     func next() -> Card?
 }
 
-struct Card: Equatable, Comparable, CustomStringConvertible {
+struct Card: Equatable, Hashable, Comparable, CustomStringConvertible {
     let rank: CardRanks
     let suit: CardSuits
     

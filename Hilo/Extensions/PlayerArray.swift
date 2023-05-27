@@ -17,7 +17,7 @@ extension Array where Element == Player {
     func makeGuesses(by card: Card) -> [Guess] {
         var guesses = [Guess]()
         
-        for player in self {
+        for var player in self {
             guesses.append(player.makeGuess(by: card))
         }
         

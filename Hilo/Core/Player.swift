@@ -10,7 +10,22 @@ import Foundation
 protocol Player {
     var name: String { get set }
     var funds: Int { get set }
-    func makeGuess(by lastOpenCard: Card) -> Guess
+    mutating func makeGuess(by lastOpenCard: Card) -> Guess
+}
+
+extension Player {
+    func printGuessing(_ guess: Guess) {
+        print(Strings.aiGuess.format(name), terminator: " ")
+        Thread.sleep(forTimeInterval: 0.25)
+        print(".", terminator: "")
+        Thread.sleep(forTimeInterval: 0.25)
+        print(".", terminator: "")
+        Thread.sleep(forTimeInterval: 0.25)
+        print(".", terminator: "")
+        Thread.sleep(forTimeInterval: 0.25)
+        print(" " + guess.rawValue)
+        Thread.sleep(forTimeInterval: 0.5)
+    }
 }
 
 enum AIDifficulty {
@@ -28,7 +43,7 @@ struct HumanPlayer: Player {
         self.funds = funds
     }
     
-    func makeGuess(by lastOpenCard: Card) -> Guess {
+    mutating func makeGuess(by lastOpenCard: Card) -> Guess {
         var guess: Guess?
         
         repeat {
@@ -44,6 +59,44 @@ struct HumanPlayer: Player {
     }
 }
 
+struct VerySmartAI: Player {
+    var name: String
+    var funds: Int
+    var tempDeck = Deck()
+
+    mutating func makeGuess(by lastOpenCard: Card) -> Guess {
+        tempDeck.cards.removeAll(where: { $0.rank == lastOpenCard.rank && $0.suit == lastOpenCard.suit })
+        
+        switch lastOpenCard.rank {
+        case .ace:
+            printGuessing(.hi)
+            return .hi
+        case .king:
+            printGuessing(.lo)
+            return .lo
+        case _: break
+        }
+        
+        let groupedCards = Dictionary(grouping: tempDeck.cards, by: { $0.rank })
+        let groupedSorted = groupedCards.sorted { $0.value.count > $1.value.count }
+        
+        if let max = groupedSorted.first {
+            if max.key.rawValue > lastOpenCard.rank.rawValue {
+                printGuessing(.hi)
+                return .hi
+            } else {
+                printGuessing(.lo)
+                return .lo
+            }
+        }
+        
+        print("~RANDOM GUESS")
+        let guess = Guess.random()
+        printGuessing(guess)
+        return guess
+    }
+}
+
 struct AIPlayer: Player {
     var name: String
     var funds: Int = 250
@@ -55,7 +108,7 @@ struct AIPlayer: Player {
         self.difficulty = difficulty
     }
     
-    func makeGuess(by lastOpenCard: Card) -> Guess {
+    mutating func makeGuess(by lastOpenCard: Card) -> Guess {
         var guess: Guess?
         
         if difficulty == .dumb {
@@ -85,18 +138,5 @@ struct AIPlayer: Player {
         
         printGuessing(guess!)
         return guess!
-    }
-    
-    private func printGuessing(_ guess: Guess) {
-        print(Strings.aiGuess.format(name), terminator: " ")
-        Thread.sleep(forTimeInterval: 0.25)
-        print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.25)
-        print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.25)
-        print(".", terminator: "")
-        Thread.sleep(forTimeInterval: 0.25)
-        print(" " + guess.rawValue)
-        Thread.sleep(forTimeInterval: 0.5)
     }
 }
